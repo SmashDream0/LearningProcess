@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="LearningProcess.MVVM.View.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearningProcess.MVVM.View"
+             mc:Ignorable="d" 
+             MinWidth="350"
+             MinHeight="75"
+             Name="me"
+             d:DesignWidth="1000">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ItemsControl Grid.Row="0">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
+
+                <Button Margin="5" Padding="3" Content="BureauBlack" Click="BureauBlack_Click"/>
+                <Button Margin="5" Padding="3" Content="BureauBlue" Click="BureauBlue_Click"/>
+                <Button Margin="5" Padding="3" Content="ExpressionDark" Click="ExpressionDark_Click"/>
+                <Button Margin="5" Padding="3" Content="ExpressionLight" Click="ExpressionLight_Click"/>
+                <Button Margin="5" Padding="3" Content="ShinyBlue" Click="ShinyBlue_Click"/>
+                <Button Margin="5" Padding="3" Content="ShinyRed" Click="ShinyRed_Click"/>
+                <Button Margin="5" Padding="3" Content="WhistlerBlue" Click="WhistlerBlue_Click"/>
+                <Button Margin="5" Padding="3" Content="Standart" Click="Button_Click"/>
+
+            </StackPanel>
+
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Padding="5" Margin="20,5,5,5" Width="{Binding ActualWidth, ElementName=me}" TextWrapping="WrapWithOverflow">
+                <Run Text="МИНОБРНАУКИ РОССИИ"/>
+                <LineBreak/>
+                <Run Text="Федеральное государственное бюджетное образовательное"/>
+                <LineBreak/>
+                <Run Text="учреждение высшего профессионального образования" />
+                <LineBreak/>
+                <Run Text="«Астраханский государственный университет»"/>
+                <LineBreak/>
+                <Run Text="(Астраханский государственный университет)" />
+            </TextBlock>
+
+        </ItemsControl>
+
+        <ItemsControl Grid.Row="1">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"
+                   Text="ЭЛЕКТРОННЫЙ УЧЕБНО-МЕТОДИЧЕСКИЙ КОМПЛЕКС"/>            
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="WrapWithOverflow"
+                   Text="{Binding Title}"/>
+        </ItemsControl>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="Астрахань 2019"/>
+        
+        <Grid Grid.Row="3" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button  Padding="5" Margin="20,5,5,5" Content="Создать/редактировать" Command="{Binding EditDataCommand}"/>
+                <Button  Padding="5" Margin="20,5,5,5" Content="Копия только для чтения" Command="{Binding MakeReadOnlyCopyCommand}"/>
+
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsReadOnly}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+            </StackPanel>
+
+            <Button HorizontalAlignment="Right" Padding="5" Margin="5,5,20,5" Content="Версия для студента"  Command="{Binding MaterialsReadCommand}" Visibility="{Binding VisibilityShow}"/>
+
+            <Button HorizontalAlignment="Right" Padding="5" Margin="5,5,20,5" Content="Войти" Command="{Binding MaterialsReadCommand}" Visibility="{Binding VisibilityHide}"/>
+        </Grid>
+
+    </Grid>
+    
+</UserControl>

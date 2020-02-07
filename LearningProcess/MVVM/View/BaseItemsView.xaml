@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="LearningProcess.MVVM.View.BaseItemsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearningProcess.MVVM.View"
+             xmlns:controls="clr-namespace:LearningProcess.MVVM.View.Control"
+             mc:Ignorable="d" MinWidth="250">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:ItemsControl VerticalContentAlignment="Top" DataContext="{Binding}" Grid.Row="0" BorderBrush="Gray" BorderThickness="1"/>
+
+        <UniformGrid Columns="3" Grid.Row="1" Margin="5">
+            
+            <Button HorizontalAlignment="Left" Margin="5" Padding="3" Content="Добавить" Command="{Binding AddCommand}"/>
+            <Button HorizontalAlignment="Center" Margin="5" Padding="3" Content="Изменить" Command="{Binding EditCommand}"/>
+            <Button HorizontalAlignment="Right" Margin="5" Padding="3" Content="Удалить" Command="{Binding DeleteCommand}"/>
+
+            <UniformGrid.Style>
+                <Style TargetType="UniformGrid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsReadOnly}" Value="True">
+                            <Setter Property="Height" Value="0"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </UniformGrid.Style>
+        </UniformGrid>
+
+    </Grid>
+
+</UserControl>

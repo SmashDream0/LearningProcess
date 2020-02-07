@@ -1,0 +1,5 @@
+sourcetype=file
+password=123
+selectedthemeindex=4
+disciplinekey=1
+blocksize=Discipline:299.550867665001,MaterialType:162.699256110521

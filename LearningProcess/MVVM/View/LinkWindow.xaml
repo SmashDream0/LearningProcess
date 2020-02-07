@@ -1,0 +1,50 @@
+﻿<Window x:Class="LearningProcess.MVVM.View.LinkWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:LearningProcess.MVVM.View"
+             xmlns:wm="clr-namespace:LearningProcess.MVVM"
+             mc:Ignorable="d"
+             MinHeight="{Binding MinHeight}"
+             MinWidth="{Binding MinWidth}"
+             WindowStartupLocation="CenterScreen"
+             Title="{Binding Title}"
+             WindowState="Maximized">
+    
+    <Window.Background>
+        <ImageBrush ImageSource="{Binding BackImage}"/>
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Visibility="{Binding CurrentLink.VisibilityShow}">
+
+            <Button Padding="3" Margin="5" Content="Назад" Command="{Binding BackCommand}" Visibility="{Binding BackVisibility}"/>
+
+            <ItemsControl ItemsSource="{Binding Links}" BorderThickness="1" BorderBrush="DarkGray">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Padding="5" Margin="5" Content="{Binding Name}" Command="{Binding GotoLinkCommand}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Name="LinkControl" Content="{Binding CurrentLink.Control}"/>
+
+    </Grid>
+
+</Window>

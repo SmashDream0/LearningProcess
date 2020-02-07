@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{773387AF-C8E4-4081-AAF8-B324F26A1CF1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearningProcess</RootNamespace>
+    <AssemblyName>LearningProcess</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper.Contrib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="presentationframework.aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MVVM\MkThemeSelector.cs" />
+    <Compile Include="MVVM\Model\InstallerModel.cs" />
+    <Compile Include="MVVM\ViewModel\Editors\EMode.cs" />
+    <Compile Include="MVVM\ViewModel\ISettings.cs" />
+    <Compile Include="MVVM\ViewModel\Items\DisciplinesListViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Items\MaterialTypesListViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Item\AItem.cs" />
+    <Compile Include="MVVM\ViewModel\Item\EmptyItem.cs" />
+    <Compile Include="MVVM\ViewModel\Link\LinkChild.cs" />
+    <Compile Include="MVVM\ViewModel\Link\LinkViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\PasswordViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SelectDisciplineViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ViewModelSettings.cs" />
+    <Compile Include="MVVM\View\BindableWebBrowser.xaml.cs">
+      <DependentUpon>BindableWebBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\Control\ItemsControl.xaml.cs">
+      <DependentUpon>ItemsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\DisciplinesListView.cs" />
+    <Compile Include="MVVM\View\DialogCloser.cs" />
+    <Compile Include="MVVM\View\LinkWindow.xaml.cs">
+      <DependentUpon>LinkWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\PasswordView.xaml.cs">
+      <DependentUpon>PasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SelectDisciplineView.xaml.cs">
+      <DependentUpon>SelectDisciplineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ORM\Context\BaseContext.cs" />
+    <Compile Include="ORM\Context\EContextType.cs" />
+    <Compile Include="ORM\Context\IContext.cs" />
+    <Compile Include="ORM\Context\FileContext.cs" />
+    <Compile Include="ORM\Context\LocalContext.cs" />
+    <Compile Include="DependencyInjector\BindSettings.cs" />
+    <Compile Include="DependencyInjector\IBinderSetting.cs" />
+    <Compile Include="DependencyInjector\IBinderTo.cs" />
+    <Compile Include="DependencyInjector\SimpleDI.cs" />
+    <Compile Include="ORM\IEntity.cs" />
+    <Compile Include="Entity\Discipline.cs" />
+    <Compile Include="Entity\Material.cs" />
+    <Compile Include="Entity\MaterialType.cs" />
+    <Compile Include="MVVM\Binds.cs" />
+    <Compile Include="MVVM\Model\AModel.cs" />
+    <Compile Include="MVVM\Model\DisciplineModel.cs" />
+    <Compile Include="MVVM\Model\MaterialsModel.cs" />
+    <Compile Include="MVVM\Model\MaterialTypesModel.cs" />
+    <Compile Include="MVVM\ViewModel\Item\AItemViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Editors\BaseEditViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Editors\DisciplineEditViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Editors\MaterialEditViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Editors\MaterialTypeEditViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Items\BaseItemsViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Items\DisciplinesViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Items\MaterialsViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Items\MaterialTypesViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Item\DisciplineViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Item\MaterialTypeViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Item\MaterialViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\MaterialsReadViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Misc\BaseNotifier.cs" />
+    <Compile Include="MVVM\ViewModel\Misc\Command.cs" />
+    <Compile Include="MVVM\View\BaseItemsView.xaml.cs">
+      <DependentUpon>BaseItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\DisciplineEditorView.xaml.cs">
+      <DependentUpon>DisciplineEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\DisciplinesView.cs" />
+    <Compile Include="MVVM\View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\MaterialEditorView.xaml.cs">
+      <DependentUpon>MaterialEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\MaterialsReadView.xaml.cs">
+      <DependentUpon>MaterialsReadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\MaterialsTypesView.cs" />
+    <Compile Include="MVVM\View\MaterialsView.cs" />
+    <Compile Include="MVVM\View\MaterialTypeEditorView.xaml.cs">
+      <DependentUpon>MaterialTypeEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\WindowManager.cs" />
+    <Compile Include="ORM\Specification\Operand\EConditiion.cs" />
+    <Compile Include="ORM\Specification\Operand\EOperation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\DisciplineRepository.cs" />
+    <Compile Include="Repository\MaterialRepository.cs" />
+    <Compile Include="Repository\MaterialTypeRepository.cs" />
+    <Compile Include="ORM\Specification\BaseData.cs" />
+    <Compile Include="ORM\Specification\Operand\Column.cs" />
+    <Compile Include="Specification\ByKey.cs" />
+    <Compile Include="Specification\Discipline\ByKey.cs" />
+    <Compile Include="Specification\MaterialType\ByDiscipline.cs" />
+    <Compile Include="Specification\Material\ByKey.cs" />
+    <Compile Include="Specification\Material\ByMaterialType.cs" />
+    <Compile Include="ORM\Specification\Operand\Operation.cs" />
+    <Compile Include="ORM\Specification\BaseSpecification.cs" />
+    <Compile Include="ORM\Specification\BaseGenericSpecification.cs" />
+    <Compile Include="ORM\Specification\Operand\Value.cs" />
+    <Compile Include="ORM\Table\Column.cs" />
+    <Compile Include="ORM\Table\Table.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MVVM\View\BaseItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\BindableWebBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\Control\ItemsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\DisciplineEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\LinkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\MaterialEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\MaterialsReadView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\MaterialTypeEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MVVM\View\PasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SelectDisciplineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\BureauBlack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MakeReadOnly\Готовые установщики\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MakeReadOnly\Make.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MakeReadOnly\всякоразное\7zsd.sfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MakeReadOnly\всякоразное\7zsd_LZMA.sfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MakeReadOnly\всякоразное\ci.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MakeReadOnly\всякоразное\cu.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CefSharp.Common">
+      <Version>73.1.130</Version>
+    </PackageReference>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>73.1.130</Version>
+    </PackageReference>
+    <PackageReference Include="Dapper">
+      <Version>1.60.6</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.110</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DisciplineEmptyImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MakeReadOnly\всякоразное\7z.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="settings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\background.jpg" />
+    <None Include="MakeReadOnly\всякоразное\списки обновлений\LP\настройки.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Resources\AddNewImage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

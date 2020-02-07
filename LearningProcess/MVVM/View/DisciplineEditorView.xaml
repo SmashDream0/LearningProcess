@@ -1,0 +1,46 @@
+﻿<Window x:Class="LearningProcess.MVVM.View.DisciplineEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearningProcess.MVVM.View"
+             mc:Ignorable="d" 
+             SizeToContent="Height"
+             Title="Дисциплина" Width="500"
+             ResizeMode="NoResize"
+             WindowStartupLocation="CenterScreen">
+
+    <ItemsControl>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Margin="4" Padding="3" Text="Наименование"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Margin="4" Padding="3" Text="Картинка"/>
+
+            <TextBox Grid.Column="1" Grid.Row="0" Margin="5" Padding="3" MinWidth="100" TextWrapping="Wrap" Text="{Binding Name}"/>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <Border BorderBrush="Black" BorderThickness="1" Margin="4" Width="100" Height="100" HorizontalAlignment="Left">
+                    <Image Source="{Binding Image}"/>
+                </Border>
+                <Button Content="Обзор..." Margin="5" Padding="3" HorizontalAlignment="Left" Command="{Binding SelectFileCommand}"/>
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid>
+            <Button HorizontalAlignment="Left" Margin="5" Padding="3" Content="{Binding ContinueButtonName}" Command="{Binding ContinueCommand}"/>
+
+            <Button HorizontalAlignment="Right" Margin="5" Padding="3" Content="Отмена" Command="{Binding CancelCommand}"/>
+        </Grid>
+    </ItemsControl>
+
+</Window>

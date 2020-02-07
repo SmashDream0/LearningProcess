@@ -1,0 +1,5 @@
+﻿;!@Install@!UTF-8!
+ GUIMode="2"
+ InstallPath="%TEMP%\\LearningProcess\\"
+ RunProgram="%TEMP%\\LearningProcess\\LearningProcess.exe"
+;!@InstallEnd@!
