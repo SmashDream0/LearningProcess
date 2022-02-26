@@ -287,7 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.Common">
-      <Version>73.1.130</Version>
+      <Version>98.1.210</Version>
     </PackageReference>
     <PackageReference Include="CefSharp.Wpf">
       <Version>73.1.130</Version>
